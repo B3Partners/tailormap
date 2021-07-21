@@ -266,7 +266,7 @@
                         </goals>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <arguments>install</arguments>
+                            <arguments>run install-all</arguments>
                         </configuration>
                     </execution>
                     <execution>

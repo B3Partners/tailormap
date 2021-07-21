@@ -1,0 +1,85 @@
+@import "inter-font.css";
+@import "~@tailormap/shared/assets/tailormap-style.css";
+
+:root {
+  --left-panel-width: 0;
+  --right-panel-width: 0;
+  --top-panel-height: 0;
+  --bottom-panel-height: 0;
+  --overlay-panel-z-index: 25000;
+  --overlay-panel-width: 300px;
+}
+
+.overlay-panel,
+.mat-dialog-container {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  color: rgb(0, 10, 30);
+  font-size: 14px;
+}
+
+.overlay-panel h1,
+.overlay-panel h2 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 0;
+}
+
+.overlay-panel a {
+  color: #1a8fea;
+}
+
+.overlay-panel a:hover {
+  color: #6236ff;
+}
+
+.overlay-panel h1 {
+  padding: 14px 14px 2px;
+}
+
+.overlay-panel .sub-title {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  color: rgba(12, 5, 36, 0.4);
+  padding: 0 3px;
+}
+
+.overlay-panel {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: var(--overlay-panel-width);
+  background-color: #fff;
+  z-index: var(--overlay-panel-z-index);
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-panel-toggle {
+  position: absolute;
+  right: calc(var(--overlay-panel-width) + 10px);
+  top: 10px;
+  width: 35px;
+  height: 62px;
+  background-color: #fff;
+  z-index: var(--overlay-panel-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.overlay-panel-toggle mat-icon {
+  height: 18px;
+}
+
+.overlay-panel--hidden,
+.overlay-panel-toggle--hidden {
+  display: none;
+}

@@ -65,7 +65,7 @@ public class FormActionBean extends LocalizableActionBean {
 
     private static final Log log = LogFactory.getLog(FormActionBean.class);
     public ActionBeanContext context;
-    private static final String JSP = "/WEB-INF/jsp/services/form.jsp";
+    private static final String JSP = "/WEB-INF/jsp/services/formAngular.jsp";
     private static final String EDITJSP = "/WEB-INF/jsp/services/editform.jsp";
 
     private Set<String> featureTypes = new HashSet<>();

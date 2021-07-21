@@ -79,6 +79,7 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
     private JSONObject details;
     private String defaultAppId;
     private List<Application> apps;
+    private String ngConfigComponent = "";
 
     // <editor-fold defaultstate="collapsed" desc="getters and setters">
     public JSONArray getComponents() {
@@ -144,7 +145,7 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
     public void setLayout(String layout) {
         this.layout = layout;
     }
-    
+
     public String getGlobalLayout() {
         return globalLayout;
     }
@@ -192,8 +193,16 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
     public void setApps(List<Application> apps) {
         this.apps = apps;
     }
+
+    public String getNgConfigComponent() {
+        return ngConfigComponent;
+    }
+
+    public void setNgConfigComponent(String ngConfigComponent) {
+        this.ngConfigComponent = ngConfigComponent;
+    }
     //</editor-fold>
-    
+
     @DefaultHandler
     public Resolution view() throws JSONException {
         if (application == null) {
@@ -258,6 +267,11 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
                 log.error("Error while making 'extPropertyGridConfigs' properties for xml object", je);
             }
         }
+
+        if (metadata.has("ngConfigComponent")) {
+            ngConfigComponent = metadata.getString("ngConfigComponent");
+            return new ForwardResolution("/WEB-INF/jsp/application/configPageAngular.jsp");
+        }
         return new ForwardResolution("/WEB-INF/jsp/application/configPage.jsp");
     }
 
@@ -270,7 +284,7 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
 
         return config();
     }
-    
+
     protected void saveComponent(EntityManager em, ConfiguredComponent component, String configObject, String name, String className, Application application, String componentLayout){
         component.setConfig(configObject);
         component.setName(name);
@@ -299,8 +313,8 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
         application.authorizationsModified();
         em.getTransaction().commit();
     }
-    
-    
+
+
     private void pushChangesToLinkedComponents(ConfiguredComponent comp){
         for (ConfiguredComponent linkedComponent : comp.getLinkedComponents()) {
             if(!ConfiguredComponent.classesExcludedFromPushing.contains(linkedComponent.getClassName())){
@@ -308,8 +322,8 @@ public class LayoutManagerActionBean extends ApplicationActionBean {
             }
         }
     }
-    
-    
+
+
     private void removeFromLinkedComponents(ConfiguredComponent comp) {
         for (ConfiguredComponent linkedComponent : comp.getLinkedComponents()) {
             linkedComponent.setMotherComponent(null);
