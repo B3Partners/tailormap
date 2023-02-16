@@ -63,7 +63,7 @@
         <jaxb.impl.version>2.3.6</jaxb.impl.version>
         <activation.api.version>1.2.2</activation.api.version>
         <slf4j.version>2.0.6</slf4j.version>
-        <jackson2.version>2.14.1</jackson2.version>
+        <jackson2.version>2.14.2</jackson2.version>
         <!-- skip integration tests by default, override this property from commandline
         or as part of a profile, see eg. 'gh-action' profile in viewer -->
         <test.skip.integrationtests>false</test.skip.integrationtests>
