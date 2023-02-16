@@ -67,7 +67,7 @@
         <!-- skip integration tests by default, override this property from commandline
         or as part of a profile, see eg. 'gh-action' profile in viewer -->
         <test.skip.integrationtests>false</test.skip.integrationtests>
-        <maven-surefire-plugin.version>3.0.0-M8</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M9</maven-surefire-plugin.version>
         <tomcat.version>7.0.109</tomcat.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
